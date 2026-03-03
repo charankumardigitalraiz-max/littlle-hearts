@@ -1,19 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Heart, ShieldCheck, Zap, Gift, Star, MessageCircle, Lock } from 'lucide-react';
+import { Heart, Sparkles, ShieldCheck, Zap, ArrowLeft, Camera, Shield, Search, MessageSquare, Gamepad, Lock, Star, Gift } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const DatingZonePage = ({ onBack }) => {
+const DatingZonePage = () => {
+    const navigate = useNavigate();
     const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }) };
 
     return (
-        <div style={{ minHeight: '100vh', background: '#0F172A', color: 'white', paddingTop: '90px' }}>
+        <div style={{ minHeight: '100vh', background: 'var(--soft-bg)', paddingBottom: '100px' }}>
             {/* Hero */}
             <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
                 <img src="/date.png" alt="Dating Zone" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.45)' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(15,23,42,0.4) 0%, #0F172A 100%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(15,23,42,0.4) 0%, var(--soft-bg) 100%)' }} />
                 <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 8% 50px' }}>
-                    <motion.button onClick={onBack} whileHover={{ x: -5 }} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', color: 'var(--neon-pink)', fontWeight: '800', fontSize: '0.95rem', cursor: 'pointer', marginBottom: '20px', padding: 0 }}>
-                        <ArrowLeft size={18} /> Back
+                    <motion.button onClick={() => navigate('/')} whileHover={{ x: -5 }} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', color: 'var(--neon-pink)', fontWeight: '800', fontSize: '0.95rem', cursor: 'pointer', marginBottom: '20px', padding: 0 }}>
+                        <ArrowLeft size={18} /> Back to Experience
                     </motion.button>
                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,0,127,0.12)', border: '1px solid var(--neon-pink)', padding: '6px 18px', borderRadius: '50px', color: 'var(--neon-pink)', fontWeight: '800', fontSize: '0.8rem', marginBottom: '16px', width: 'fit-content' }}>
                         <Heart size={14} fill="var(--neon-pink)" /> DATING ZONE
@@ -59,7 +61,7 @@ const DatingZonePage = ({ onBack }) => {
                             { icon: <Heart size={20} />, title: 'No-Ghosting Policy', desc: 'Built-in accountability so both people feel respected — no more being left on read.' },
                             { icon: <Gift size={20} />, title: 'Virtual Gifts', desc: 'Send thoughtful digital gifts to express how you feel. A small gesture that means a lot.' },
                             { icon: <Star size={20} />, title: 'Smart Matching', desc: 'AI-powered match suggestions based on personality, values, and relationship goals.' },
-                            { icon: <MessageCircle size={20} />, title: 'Private Messaging', desc: 'Secure, private chats visible only to you and your match. Full privacy, always.' },
+                            { icon: <MessageSquare size={20} />, title: 'Private Messaging', desc: 'Secure, private chats visible only to you and your match. Full privacy, always.' },
                         ].map((f, i) => (
                             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.5} variants={fadeUp}
                                 style={{ display: 'flex', gap: '16px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', padding: '20px' }}>
@@ -96,36 +98,18 @@ const DatingZonePage = ({ onBack }) => {
                     </div>
                 </motion.div>
 
-                {/* Guidelines & Privacy */}
+                {/* Guidelines */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '60px' }}>
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
                         style={{ background: 'rgba(255,0,127,0.05)', border: '1px solid rgba(255,0,127,0.15)', borderRadius: '20px', padding: '28px' }}>
                         <h3 style={{ color: 'var(--neon-pink)', fontWeight: '900', fontSize: '1rem', letterSpacing: '0.08em', marginBottom: '18px' }}>⚠ ZONE GUIDELINES</h3>
                         {['Only connect with users who have consented', 'No explicit or inappropriate content — ever', 'Respect every "no" — harassment results in a permanent ban', 'No fake profiles or impersonation', 'All activity is monitored for safety compliance'].map((r, i) => (
-                            <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '12px', color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                            <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '12px', color: 'var(--light-text)', fontSize: '0.9rem', lineHeight: 1.5 }}>
                                 <ShieldCheck size={15} color="var(--neon-pink)" style={{ flexShrink: 0, marginTop: '2px' }} /> {r}
                             </div>
                         ))}
                     </motion.div>
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}
-                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '20px', padding: '28px' }}>
-                        <h3 style={{ color: 'rgba(255,255,255,0.5)', fontWeight: '900', fontSize: '1rem', letterSpacing: '0.08em', marginBottom: '18px' }}>🔒 PRIVACY & TERMS</h3>
-                        {['Private chats are visible only to participating users', 'We collect profile, device, and usage data to run this zone', 'Your data is never sold to third parties', 'You must be 13+ to use Dating Zone', 'Little Hearts does not guarantee romantic outcomes or compatibility', 'Virtual gifts are non-refundable digital items', 'Contact: littleheartsapp@gmail.com'].map((r, i) => (
-                            <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '12px', color: 'rgba(255,255,255,0.55)', fontSize: '0.88rem', lineHeight: 1.5 }}>
-                                <span style={{ color: 'var(--neon-pink)', flexShrink: 0 }}>•</span> {r}
-                            </div>
-                        ))}
-                    </motion.div>
                 </div>
-
-                {/* CTA */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-                    style={{ textAlign: 'center', padding: '60px 40px', background: 'linear-gradient(135deg, rgba(255,0,127,0.08) 0%, rgba(255,0,127,0.02) 100%)', border: '1px solid rgba(255,0,127,0.12)', borderRadius: '32px' }}>
-                    <Heart size={48} color="var(--neon-pink)" fill="var(--neon-pink)" style={{ marginBottom: '20px', opacity: 0.7 }} />
-                    <h2 style={{ fontSize: '2.2rem', fontWeight: '950', marginBottom: '14px' }}>Find Someone <span style={{ color: 'var(--neon-pink)' }}>Special</span></h2>
-                    <p style={{ color: 'rgba(255,255,255,0.55)', marginBottom: '30px', fontSize: '1rem', lineHeight: 1.7 }}>Download Little Hearts and enter the Dating Zone today. Real connections are waiting.</p>
-                    <button className="btn-primary" style={{ padding: '16px 44px', fontSize: '1.05rem' }}>Download the App</button>
-                </motion.div>
             </div>
         </div>
     );

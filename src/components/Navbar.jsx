@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Download, Heart } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
-const Navbar = ({ onLogoClick }) => {
+const Navbar = ({ onLogoClick, onNavClick }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { scrollY } = useScroll();
@@ -22,10 +22,10 @@ const Navbar = ({ onLogoClick }) => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'Zones', href: '#zones' },
-        { name: 'Features', href: '#features' },
-        { name: 'Community', href: '#community' },
+        { name: 'Home', id: null },
+        { name: 'Zones', id: 'zones' },
+        { name: 'Features', id: 'features' },
+        { name: 'Community', id: 'community' },
     ];
 
     return (
@@ -89,15 +89,16 @@ const Navbar = ({ onLogoClick }) => {
             {/* Desktop Navigation */}
             <div className="nav-links-desktop" style={{ display: 'flex', alignItems: 'center', gap: '35px' }}>
                 {navLinks.map((link) => (
-                    <motion.a
+                    <motion.div
                         key={link.name}
-                        href={link.href}
+                        onClick={() => onNavClick(link.id)}
                         style={{
                             fontSize: '0.95rem',
                             fontWeight: '700',
                             color: 'var(--dark-text)',
                             textDecoration: 'none',
-                            position: 'relative'
+                            position: 'relative',
+                            cursor: 'pointer'
                         }}
                         whileHover="hover"
                     >
@@ -116,7 +117,7 @@ const Navbar = ({ onLogoClick }) => {
                                 borderRadius: '2px'
                             }}
                         />
-                    </motion.a>
+                    </motion.div>
                 ))}
             </div>
 
@@ -170,19 +171,22 @@ const Navbar = ({ onLogoClick }) => {
                         }}
                     >
                         {navLinks.map((link) => (
-                            <a
+                            <div
                                 key={link.name}
-                                href={link.href}
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={() => {
+                                    onNavClick(link.id);
+                                    setMobileMenuOpen(false);
+                                }}
                                 style={{
                                     fontSize: '1.2rem',
                                     fontWeight: '800',
                                     color: 'var(--dark-text)',
-                                    textDecoration: 'none'
+                                    textDecoration: 'none',
+                                    cursor: 'pointer'
                                 }}
                             >
                                 {link.name}
-                            </a>
+                            </div>
                         ))}
                         <button className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                             <Download size={20} /> Download App

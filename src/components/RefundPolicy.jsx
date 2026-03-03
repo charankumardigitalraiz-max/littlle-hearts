@@ -1,94 +1,177 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, CreditCard } from 'lucide-react';
+import { ArrowLeft, CreditCard, RefreshCcw, AlertTriangle, Globe, Clock, ShieldCheck, HelpCircle, FileCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const Section = ({ num, title, children }) => (
+const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--neon-pink)' }) => (
     <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        style={{ marginBottom: '40px' }}
+        transition={{ duration: 0.6, delay }}
+        whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        style={{
+            background: 'rgba(255, 255, 255, 0.7)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            borderRadius: '32px',
+            padding: '35px',
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.04)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '15px'
+        }}
     >
-        <h2 style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--dark-text)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ background: 'var(--gradient-neon)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{num}.</span>
-            {title}
-        </h2>
-        <div style={{ color: 'var(--light-text)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+        <div style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '16px',
+            background: `linear-gradient(135deg, ${accent}, #ff007f)`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            boxShadow: `0 8px 16px ${accent}33`
+        }}>
+            <Icon size={24} />
+        </div>
+        <h3 style={{ fontSize: '1.25rem', fontWeight: '900', color: 'var(--dark-text)', letterSpacing: '-0.02em' }}>{title}</h3>
+        <div style={{ color: 'var(--light-text)', lineHeight: 1.6, fontSize: '0.95rem', fontWeight: '500' }}>
             {children}
         </div>
     </motion.div>
 );
 
-const List = ({ items }) => (
-    <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px', margin: '10px 0' }}>
-        {items.map((item, i) => <li key={i}>{item}</li>)}
-    </ul>
-);
+const RefundPolicy = () => {
+    const navigate = useNavigate();
 
-const RefundPolicy = ({ onBack }) => {
     return (
-        <div style={{ minHeight: '100vh', background: 'var(--soft-bg)', paddingTop: '100px', paddingBottom: '80px' }}>
-            <div style={{ maxWidth: '860px', marginInline: 'auto', padding: '0 8%' }}>
+        <div style={{ minHeight: '100vh', background: 'var(--soft-bg)', paddingTop: '120px', paddingBottom: '100px', position: 'relative', overflow: 'hidden' }}>
+            {/* Decorative backgrounds */}
+            <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '40%', height: '40%', background: 'radial-gradient(circle, rgba(255,0,127,0.05) 0%, transparent 70%)', zIndex: 0 }} />
+
+            <div style={{ maxWidth: '1200px', marginInline: 'auto', padding: '0 5%', position: 'relative', zIndex: 1 }}>
                 <motion.button
-                    onClick={onBack}
-                    whileHover={{ x: -5 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--neon-pink)', fontWeight: '800', fontSize: '0.95rem', marginBottom: '40px', padding: 0 }}
+                    onClick={() => navigate('/')}
+                    whileHover={{ x: -8 }}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        background: 'white',
+                        border: '1px solid rgba(0,0,0,0.05)',
+                        cursor: 'pointer',
+                        color: 'var(--dark-text)',
+                        fontWeight: '800',
+                        fontSize: '0.9rem',
+                        marginBottom: '40px',
+                        padding: '12px 24px',
+                        borderRadius: '50px',
+                        boxShadow: '0 10px 20px rgba(0,0,0,0.03)'
+                    }}
                 >
                     <ArrowLeft size={18} /> Back to Home
                 </motion.button>
 
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: '50px' }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', color: 'var(--vivid-orange)', background: 'rgba(255,108,0,0.06)', padding: '8px 20px', borderRadius: '50px', fontWeight: '800', fontSize: '0.85rem', marginBottom: '20px' }}>
-                        <CreditCard size={16} /> REFUND POLICY
-                    </div>
-                    <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '950', color: 'var(--dark-text)', marginBottom: '12px', letterSpacing: '-0.03em' }}>
+                <header style={{ marginBottom: '60px' }}>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            color: 'var(--neon-pink)',
+                            background: 'white',
+                            padding: '10px 24px',
+                            borderRadius: '50px',
+                            fontWeight: '900',
+                            fontSize: '0.8rem',
+                            marginBottom: '24px',
+                            boxShadow: '0 10px 20px rgba(0,0,0,0.02)',
+                            letterSpacing: '0.05em'
+                        }}
+                    >
+                        <CreditCard size={18} /> PAYMENT & REFUNDS
+                    </motion.div>
+                    <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: '950', color: 'var(--dark-text)', marginBottom: '20px', letterSpacing: '-0.04em', lineHeight: 1 }}>
                         Refund <span className="text-gradient">Policy</span>
                     </h1>
-                    <p style={{ color: 'var(--light-text)', fontSize: '1rem', lineHeight: 1.7 }}>
+                    <p style={{ color: 'var(--light-text)', fontSize: '1.2rem', maxWidth: '750px', lineHeight: 1.6, fontWeight: '500' }}>
                         Please read our refund policy carefully before making any purchases on the Little Hearts platform.
                     </p>
-                </motion.div>
+                </header>
 
-                <div style={{ background: 'white', borderRadius: '32px', padding: '50px', boxShadow: '0 20px 60px rgba(0,0,0,0.05)' }}>
-                    <Section num="1" title="Digital Products & Virtual Items">
-                        <p style={{ marginBottom: '12px' }}>Little Hearts may offer:</p>
-                        <List items={['Virtual Gifts', 'Profile Frames', 'Premium Features', 'In-App Currency (if applicable)']} />
-                        <p style={{ marginTop: '12px' }}>All items are digital and have no real-world monetary value.</p>
-                    </Section>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                    gap: '24px'
+                }}>
+                    <GlassCard icon={CreditCard} title="1. Digital Products & Virtual Items" delay={0.1}>
+                        <p>Little Hearts may offer:</p>
+                        <ul style={{ marginTop: '5px', paddingLeft: '20px', listStyle: 'disc' }}>
+                            <li>Virtual Gifts</li>
+                            <li>Profile Frames</li>
+                            <li>Premium Features</li>
+                            <li>In-App Currency (if applicable)</li>
+                        </ul>
+                        <p style={{ marginTop: '10px' }}>All items are digital and have no real-world monetary value.</p>
+                    </GlassCard>
 
-                    <Section num="2" title="General Refund Policy">
-                        <p style={{ marginBottom: '12px' }}>Due to the nature of digital products:</p>
-                        <List items={['All purchases are final and non-refundable', 'Virtual gifts sent to other users cannot be reversed', 'Used profile frames or activated premium features are non-refundable']} />
-                    </Section>
+                    <GlassCard icon={RefreshCcw} title="2. General Refund Policy" delay={0.2}>
+                        <p>Due to the nature of digital products:</p>
+                        <ul style={{ marginTop: '5px', paddingLeft: '20px', listStyle: 'disc' }}>
+                            <li>All purchases are final and non-refundable</li>
+                            <li>Virtual gifts sent to other users cannot be reversed</li>
+                            <li>Used profile frames or activated premium features are non-refundable</li>
+                        </ul>
+                    </GlassCard>
 
-                    <Section num="3" title="Exceptions">
-                        <p style={{ marginBottom: '12px' }}>Refunds may be considered in the following cases:</p>
-                        <List items={['Accidental duplicate charges', 'Unauthorized transactions', 'Technical errors causing failed delivery of purchased items']} />
-                        <p style={{ marginTop: '12px', fontWeight: '700', color: 'var(--dark-text)' }}>Refund requests must be submitted within 7 days of the transaction.</p>
-                    </Section>
+                    <GlassCard icon={AlertTriangle} title="3. Exceptions" delay={0.3} accent="#ff4b2b">
+                        <p>Refunds may be considered in the following cases:</p>
+                        <ul style={{ marginTop: '5px', paddingLeft: '20px', listStyle: 'disc' }}>
+                            <li>Accidental duplicate charges</li>
+                            <li>Unauthorized transactions</li>
+                            <li>Technical errors causing failed delivery of purchased items</li>
+                        </ul>
+                        <p style={{ marginTop: '10px', fontWeight: '700' }}>Refund requests must be submitted within 7 days of the transaction.</p>
+                    </GlassCard>
 
-                    <Section num="4" title="Platform-Based Purchases">
-                        <p style={{ marginBottom: '12px' }}>If your purchase was made through Google Play Store, refunds are subject to the respective platform's refund policies. Users must request refunds directly through the platform where the purchase was made.</p>
-                        <p>Little Hearts does not control platform payment processing decisions.</p>
-                    </Section>
+                    <GlassCard icon={Globe} title="4. Platform-Based Purchases" delay={0.4}>
+                        <p>If your purchase was made through Google Play Store, refunds are subject to the respective platform’s refund policies.</p>
+                        <p style={{ marginTop: '10px' }}>Users must request refunds directly through the platform where the purchase was made. Little Hearts does not control platform payment processing decisions.</p>
+                    </GlassCard>
 
-                    <Section num="5" title="Processing Time">
-                        <p style={{ marginBottom: '12px' }}>If a refund is approved:</p>
-                        <List items={['It may take 5–10 business days to reflect in your account', 'The refund will be issued to the original payment method']} />
-                    </Section>
+                    <GlassCard icon={Clock} title="5. Processing Time" delay={0.5}>
+                        <p>If a refund is approved:</p>
+                        <ul style={{ marginTop: '5px', paddingLeft: '20px', listStyle: 'disc' }}>
+                            <li>It may take 5–10 business days to reflect in your account</li>
+                            <li>The refund will be issued to the original payment method</li>
+                        </ul>
+                    </GlassCard>
 
-                    <Section num="6" title="Fraud Prevention">
-                        <p style={{ marginBottom: '12px' }}>We reserve the right to deny refund requests if:</p>
-                        <List items={['There is evidence of misuse', 'Multiple refund claims are made', 'The purchase has already been consumed']} />
-                    </Section>
+                    <GlassCard icon={ShieldCheck} title="6. Fraud Prevention" delay={0.6}>
+                        <p>We reserve the right to deny refund requests if:</p>
+                        <ul style={{ marginTop: '5px', paddingLeft: '20px', listStyle: 'disc' }}>
+                            <li>There is evidence of misuse</li>
+                            <li>Multiple refund claims are made</li>
+                            <li>The purchase has already been consumed</li>
+                        </ul>
+                    </GlassCard>
 
-                    <Section num="7" title="Contact Us">
-                        <p style={{ marginBottom: '12px' }}>For refund-related inquiries, please contact:</p>
-                        <p style={{ fontWeight: '700', color: 'var(--dark-text)' }}>Little Hearts Support</p>
-                        <p>📧 <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'var(--neon-pink)', fontWeight: '700' }}>littleheartsapp@gmail.com</a></p>
-                        <p style={{ marginTop: '12px' }}>Include: Username, Transaction ID, Date of purchase, Description of issue.</p>
-                    </Section>
+                    <GlassCard icon={HelpCircle} title="7. Contact Us" delay={0.7}>
+                        <p>For refund-related inquiries, contact <strong>Little Hearts Support</strong>:</p>
+                        <div style={{ marginTop: '10px', padding: '15px', background: 'rgba(255,0,127,0.05)', borderRadius: '16px' }}>
+                            <p style={{ fontSize: '0.85rem' }}>📧 <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'var(--neon-pink)', fontWeight: '800' }}>littleheartsapp@gmail.com</a></p>
+                        </div>
+                        <p style={{ marginTop: '10px', fontSize: '0.85rem' }}>Include: Username, Transaction ID, Date of purchase, Description of issue.</p>
+                    </GlassCard>
                 </div>
+
+                <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
+                    <p>© 2024 Little Hearts Tech. Honesty is our only policy.</p>
+                </footer>
             </div>
         </div>
     );

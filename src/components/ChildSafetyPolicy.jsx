@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, ArrowLeft, UserCheck, ShieldAlert, Scale, CreditCard, Ban, AlertCircle, RefreshCw, Info } from 'lucide-react';
+import { ShieldAlert, ArrowLeft, Baby, Lock, Heart, Eye, Bell, ShieldCheck, LifeBuoy, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--bright-cyan)' }) => (
+const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--vivid-orange)' }) => (
+    // ... (rest of GlassCard)
     <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +28,7 @@ const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--bri
             width: '50px',
             height: '50px',
             borderRadius: '16px',
-            background: `linear-gradient(135deg, ${accent}, #00d2ff)`,
+            background: `linear-gradient(135deg, ${accent}, #ffae00)`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -43,13 +44,12 @@ const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--bri
     </motion.div>
 );
 
-const TermsConditions = () => {
+const ChildSafetyPolicy = () => {
     const navigate = useNavigate();
 
     return (
         <div style={{ minHeight: '100vh', background: 'var(--soft-bg)', paddingTop: '120px', paddingBottom: '100px', position: 'relative', overflow: 'hidden' }}>
-            {/* Decorative backgrounds */}
-            <div style={{ position: 'absolute', top: '10%', left: '-5%', width: '40%', height: '40%', background: 'radial-gradient(circle, rgba(0,210,255,0.05) 0%, transparent 70%)', zIndex: 0 }} />
+            <div style={{ position: 'absolute', top: '-5%', right: '-5%', width: '40%', height: '40%', background: 'radial-gradient(circle, rgba(255,108,0,0.05) 0%, transparent 70%)', zIndex: 0 }} />
 
             <div style={{ maxWidth: '1200px', marginInline: 'auto', padding: '0 5%', position: 'relative', zIndex: 1 }}>
                 <motion.button
@@ -82,7 +82,7 @@ const TermsConditions = () => {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '10px',
-                            color: 'var(--bright-cyan)',
+                            color: 'var(--vivid-orange)',
                             background: 'white',
                             padding: '10px 24px',
                             borderRadius: '50px',
@@ -93,13 +93,13 @@ const TermsConditions = () => {
                             letterSpacing: '0.05em'
                         }}
                     >
-                        <FileText size={18} /> TERMS OF SERVICE
+                        <ShieldAlert size={18} /> SAFETY FIRST
                     </motion.div>
                     <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: '950', color: 'var(--dark-text)', marginBottom: '20px', letterSpacing: '-0.04em', lineHeight: 1 }}>
-                        Ground Rules for <span style={{ color: 'var(--bright-cyan)' }}>Hearts</span>
+                        Protecting Our <span style={{ color: 'var(--vivid-orange)' }}>Youngest Hearts</span>
                     </h1>
                     <p style={{ color: 'var(--light-text)', fontSize: '1.2rem', maxWidth: '750px', lineHeight: 1.6, fontWeight: '500' }}>
-                        By joining Little Hearts, you're agreeing to help us build a kind, respectful, and genuine community. Here's how we keep it real.
+                        Safety isn't just a feature; it's our foundation. We've implemented rigorous standards to ensure a secure environment for everyone in our community.
                     </p>
                 </header>
 
@@ -108,45 +108,48 @@ const TermsConditions = () => {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                     gap: '24px'
                 }}>
-                    <GlassCard icon={UserCheck} title="1. Who Can Join" delay={0.1}>
-                        <p>You must be 13 or older. By creating an account, you promise that everything you tell us — especially your age and identity — is the honest truth.</p>
+                    <GlassCard icon={Baby} title="1. Age Requirement" delay={0.1}>
+                        <p>Little Hearts is designed for users aged 13 and older. We use a combination of self-declaration and monitoring to ensure strictly age-appropriate interactions.</p>
                     </GlassCard>
 
-                    <GlassCard icon={ShieldAlert} title="2. Your Mission" delay={0.2}>
-                        <p>Be the best version of yourself. Respect others, keep your login info safe, and remember that you're responsible for everything that happens on your profile.</p>
+                    <GlassCard icon={ShieldCheck} title="2. Verified Environment" delay={0.2}>
+                        <p>We encourage and implement profile verification to ensure that every "heart" on our platform is a real, genuine human being with honest intentions.</p>
                     </GlassCard>
 
-                    <GlassCard icon={Ban} title="3. The 'No' List" delay={0.3} accent="#ff4b2b">
-                        <p>We have zero tolerance for bullying, harassment, explicit content, or scammers. Any attempt to disrupt the kindness of this community will lead to a permanent ban.</p>
+                    <GlassCard icon={Eye} title="3. Active Moderation" delay={0.3} accent="#ff4b2b">
+                        <p>Our systems and human moderators work around the clock to detect and remove inappropriate content, harassment, or any behavior that compromises safety.</p>
                     </GlassCard>
 
-                    <GlassCard icon={Scale} title="4. Safe Interactions" delay={0.4}>
-                        <p>Our Buddy, Friend, and Hangout zones are here for connection. While we build the stage, you're the lead — interact at your own pace and always prioritize your safety.</p>
+                    <GlassCard icon={Bell} title="4. Instant Reporting" delay={0.4}>
+                        <p>Found something that doesn't feel right? Our 1-tap reporting tool puts the power in your hands. We investigate every single report with the highest priority.</p>
                     </GlassCard>
 
-                    <GlassCard icon={CreditCard} title="5. Virtual Values" delay={0.5}>
-                        <p>Virtual gifts and premium features are meant to add fun. They have no real-world cash value and are generally non-refundable unless something goes wrong technically.</p>
+                    <GlassCard icon={Lock} title="5. Privacy Controls" delay={0.5}>
+                        <p>By default, we minimize the amount of personal data shared. You have full control over who can see your profile and who can start a conversation with you.</p>
                     </GlassCard>
 
-                    <GlassCard icon={AlertCircle} title="6. Account Standing" delay={0.6}>
-                        <p>We reserve the right to suspend or close accounts that break these rules. We're here to protect the community above all else.</p>
+                    <GlassCard icon={Users} title="6. Community Standards" delay={0.6}>
+                        <p>We've built a "Kindness-First" culture. Any user found targeting minors or engaging in predatory behavior is permanently banned and reported to authorities if necessary.</p>
                     </GlassCard>
 
-                    <GlassCard icon={Info} title="7. The Legal Side" delay={0.7}>
-                        <p>Little Hearts is provided "as is." We aren't responsible for user disputes or personal outcomes. We're the platform; you're the heart of it.</p>
+                    <GlassCard icon={LifeBuoy} title="7. Parental Resources" delay={0.7}>
+                        <p>We believe in teamwork. We provide resources and clear channels for parents to understand how our app works and how they can support their teen's safety.</p>
                     </GlassCard>
 
-                    <GlassCard icon={RefreshCw} title="8. Staying Current" delay={0.8}>
-                        <p>Rules change as we grow. We'll update these terms here, and your continued use of the app means you're still on board with us.</p>
+                    <GlassCard icon={Heart} title="8. Our Commitment" delay={0.8}>
+                        <p>Your safety is our north star. We continuously evolve our technology and policies to stay ahead of risks and keep Little Hearts a warm, safe space.</p>
+                        <div style={{ marginTop: '15px', padding: '15px', background: 'rgba(255,108,0,0.05)', borderRadius: '16px' }}>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--vivid-orange)', fontWeight: '800' }}>Safety Contact: <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'inherit', textDecoration: 'underline' }}>littleheartsapp@gmail.com</a></p>
+                        </div>
                     </GlassCard>
                 </div>
 
                 <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
-                    <p>© 2024 Little Hearts. Kindness is a choice. Thank you for choosing it.</p>
+                    <p>© 2024 Little Hearts Tech. Safe hearts are happy hearts.</p>
                 </footer>
             </div>
         </div>
     );
 };
 
-export default TermsConditions;
+export default ChildSafetyPolicy;
