@@ -8,7 +8,7 @@ const pricingPlans = [
         name: 'Free',
         price: '₹0',
         period: '/ month',
-        color: 'rgba(0,0,0,0.02)',
+        color: 'rgba(255,255,255,0.7)',
         border: 'rgba(0,0,0,0.05)',
         badge: null,
         features: [
@@ -25,7 +25,7 @@ const pricingPlans = [
         name: 'Hangout Plus',
         price: '₹149',
         period: '/ month',
-        color: 'rgba(255,108,0,0.05)',
+        color: 'rgba(255,94,0,0.03)',
         border: 'var(--vivid-orange)',
         badge: 'MOST POPULAR',
         features: [
@@ -43,7 +43,7 @@ const pricingPlans = [
         name: 'Social Pro',
         price: '₹299',
         period: '/ month',
-        color: 'rgba(157,80,187,0.05)',
+        color: 'rgba(112,0,255,0.03)',
         border: 'var(--deep-purple)',
         badge: 'BEST VALUE',
         features: [
@@ -60,117 +60,208 @@ const pricingPlans = [
 ];
 
 const virtualGifts = [
-    { emoji: '☕', name: 'Coffee Cheers', price: '₹9', desc: 'Send a virtual coffee to your hangout buddy.' },
-    { emoji: '🍕', name: 'Pizza Party', price: '₹15', desc: 'A fun gift for your foodie hangout partners.' },
-    { emoji: '🎮', name: 'Game Night', price: '₹19', desc: 'Perfect for gaming buddies and game night plans.' },
-    { emoji: '🎉', name: 'Party Popper', price: '₹25', desc: 'Celebrate a great hangout with this festive gift.' },
+    { emoji: '☕', name: 'Coffee Cheers', price: '₹9', desc: 'Send a virtual coffee to your buddy.' },
+    { emoji: '🍕', name: 'Pizza Party', price: '₹15', desc: 'A fun gift for foodie partners.' },
+    { emoji: '🎮', name: 'Game Night', price: '₹19', desc: 'Perfect for gaming plans.' },
+    { emoji: '🎉', name: 'Party Popper', price: '₹25', desc: 'Celebrate a great hangout.' },
 ];
+
+const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--vivid-orange)' }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay }}
+        whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        style={{
+            background: 'rgba(255, 255, 255, 0.7)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            borderRadius: '32px',
+            padding: '35px',
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.04)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '15px'
+        }}
+    >
+        <div style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: '18px',
+            background: `linear-gradient(135deg, ${accent}, #ff8c00)`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            boxShadow: `0 10px 20px ${accent}33`
+        }}>
+            <Icon size={26} />
+        </div>
+        <h3 style={{ fontSize: '1.4rem', fontWeight: '900', color: 'var(--dark-text)', letterSpacing: '-0.02em' }}>{title}</h3>
+        <div style={{ color: 'var(--light-text)', lineHeight: 1.7, fontSize: '1rem', fontWeight: '500' }}>
+            {children}
+        </div>
+    </motion.div>
+);
 
 const HangoutZonePage = () => {
     const navigate = useNavigate();
-    const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }) };
+    const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6 } }) };
 
     return (
-        <div style={{ minHeight: '100vh', background: 'var(--soft-bg)', paddingBottom: '100px' }}>
-            {/* Hero */}
-            <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
-                <img src="/hangout.png" alt="Hangout Zone" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.45)' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(15,23,42,0.4) 0%, var(--soft-bg) 100%)' }} />
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 8% 50px' }}>
-                    <motion.button onClick={() => navigate('/')} whileHover={{ x: -5 }} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', color: 'var(--vivid-orange)', fontWeight: '800', fontSize: '0.95rem', cursor: 'pointer', marginBottom: '20px', padding: 0 }}>
-                        <ArrowLeft size={18} /> Back to Experience
+        <div style={{ minHeight: '100vh', background: 'var(--soft-bg)', paddingBottom: '100px', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '15%', left: '-5%', width: '40%', height: '40%', background: 'radial-gradient(circle, rgba(255,94,0,0.04) 0%, transparent 70%)', zIndex: 0 }} />
+
+            <div style={{ position: 'relative', height: '480px', overflow: 'hidden', marginBottom: '60px' }}>
+                <img src="/hangout.png" alt="Hangout Zone" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.5)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, transparent 40%, var(--soft-bg) 100%)' }} />
+
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 8% 60px', zIndex: 2 }}>
+                    <motion.button
+                        onClick={() => navigate('/')}
+                        whileHover={{ x: -10 }}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            background: 'white',
+                            border: 'none',
+                            color: 'var(--dark-text)',
+                            fontWeight: '800',
+                            fontSize: '0.95rem',
+                            cursor: 'pointer',
+                            marginBottom: '32px',
+                            padding: '12px 24px',
+                            borderRadius: '50px',
+                            boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                            width: 'fit-content'
+                        }}
+                    >
+                        <ArrowLeft size={20} /> Back to Experience
                     </motion.button>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,108,0,0.12)', border: '1px solid var(--vivid-orange)', padding: '6px 18px', borderRadius: '50px', color: 'var(--vivid-orange)', fontWeight: '800', fontSize: '0.8rem', marginBottom: '16px', width: 'fit-content' }}>
-                        <Coffee size={14} /> HANGOUT ZONE
-                    </div>
-                    <h1 style={{ fontSize: 'clamp(2.4rem, 6vw, 4rem)', fontWeight: '950', lineHeight: 1.05, letterSpacing: '-0.04em' }}>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            background: 'white',
+                            border: '1px solid rgba(255,94,0,0.3)',
+                            padding: '8px 20px',
+                            borderRadius: '50px',
+                            color: 'var(--vivid-orange)',
+                            fontWeight: '900',
+                            fontSize: '0.85rem',
+                            marginBottom: '20px',
+                            width: 'fit-content',
+                            boxShadow: '0 8px 20px rgba(255,94,0,0.1)',
+                        }}
+                    >
+                        <Coffee size={16} /> HANGOUT ZONE
+                    </motion.div>
+
+                    <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 4.5rem)', fontWeight: '950', lineHeight: 1, letterSpacing: '-0.04em', color: 'var(--dark-text)', marginBottom: '16px' }}>
                         Your City is Your <span style={{ color: 'var(--vivid-orange)' }}>Playground</span>
                     </h1>
-                    <p style={{ marginTop: '16px', color: 'rgba(255,255,255,0.65)', fontSize: '1.1rem', maxWidth: '600px', lineHeight: 1.7 }}>
+                    <p style={{ color: 'var(--light-text)', fontSize: '1.2rem', maxWidth: '650px', lineHeight: 1.6, fontWeight: '500' }}>
                         Meet for coffee, explore local events, or plan spontaneous adventures. A casual, zero-pressure zone built for fun.
                     </p>
                 </div>
             </div>
 
-            <div style={{ padding: '60px 8%', maxWidth: '1200px', marginInline: 'auto' }}>
-                {/* About Section */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} style={{ marginBottom: '60px' }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--vivid-orange)', background: 'rgba(255,108,0,0.08)', padding: '6px 18px', borderRadius: '50px', fontWeight: '800', fontSize: '0.8rem', marginBottom: '20px' }}>
-                        <Coffee size={14} /> ABOUT THIS ZONE
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-                        {[
-                            { icon: <MapPin size={22} />, title: 'Local & Live', desc: 'Discover events and meetups happening around you right now. Your next adventure is just around the corner.' },
-                            { icon: <Users size={22} />, title: 'Zero Pressure', desc: 'No romantic expectations, no awkward situations. Just casual meetups with interesting people in your city.' },
-                            { icon: <Zap size={22} />, title: 'Spontaneous Plans', desc: 'Organize or join events in minutes — coffee, lunch, hikes, board game nights, cinema runs, and more.' },
-                        ].map((item, i) => (
-                            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-                                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '20px', padding: '28px' }}>
-                                <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(255,108,0,0.1)', color: 'var(--vivid-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '18px' }}>{item.icon}</div>
-                                <h3 style={{ fontSize: '1.15rem', fontWeight: '900', marginBottom: '10px' }}>{item.title}</h3>
-                                <p style={{ color: 'var(--light-text)', lineHeight: 1.7, fontSize: '0.95rem' }}>{item.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+            <div style={{ padding: '0 8%', maxWidth: '1300px', marginInline: 'auto', position: 'relative', zIndex: 1 }}>
 
-                {/* Pricing */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} style={{ marginBottom: '60px' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-                        <h2 style={{ fontSize: '2.2rem', fontWeight: '950', marginBottom: '12px' }}>Simple, Transparent <span style={{ color: 'var(--vivid-orange)' }}>Pricing</span></h2>
-                        <p style={{ color: 'var(--light-text)', maxWidth: '500px', marginInline: 'auto', lineHeight: 1.7 }}>Start for free, upgrade when you're ready to do more.</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '24px', marginBottom: '80px' }}>
+                    <GlassCard icon={MapPin} title="Local & Live" delay={0.1}>
+                        <p>Discover events and meetups happening around you right now. Your next city adventure is just around the corner.</p>
+                    </GlassCard>
+                    <GlassCard icon={Users} title="Zero Pressure" delay={0.2}>
+                        <p>No romantic expectations, no awkward situations. Just casual meetups with interesting people in your own city.</p>
+                    </GlassCard>
+                    <GlassCard icon={Zap} title="Spontaneous Plans" delay={0.3}>
+                        <p>Organize or join events in minutes — coffee, lunch, hikes, board game nights, cinema runs, and more.</p>
+                    </GlassCard>
+                </div>
+
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} style={{ marginBottom: '100px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <h2 style={{ fontSize: '2.8rem', fontWeight: '950', marginBottom: '16px', color: 'var(--dark-text)' }}>Simple, Transparent <span style={{ color: 'var(--vivid-orange)' }}>Pricing</span></h2>
+                        <p style={{ color: 'var(--light-text)', fontSize: '1.1rem', maxWidth: '500px', marginInline: 'auto' }}>Start for free, upgrade when you're ready to do more.</p>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
                         {pricingPlans.map((plan, i) => (
-                            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-                                whileHover={{ y: -8 }}
-                                style={{ background: plan.color, border: `1px solid ${plan.border}`, borderRadius: '24px', padding: '32px', position: 'relative', overflow: 'hidden' }}>
+                            <motion.div key={i} custom={i} variants={fadeUp}
+                                whileHover={{ y: -10 }}
+                                style={{
+                                    background: plan.color,
+                                    border: `1px solid ${plan.border}`,
+                                    borderRadius: '40px',
+                                    padding: '40px',
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    boxShadow: '0 20px 40px rgba(0,0,0,0.03)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    background: 'white'
+                                }}>
                                 {plan.badge && (
-                                    <div style={{ position: 'absolute', top: '18px', right: '18px', background: 'var(--vivid-orange)', color: 'white', fontSize: '0.65rem', fontWeight: '900', padding: '4px 12px', borderRadius: '50px', letterSpacing: '0.08em' }}>{plan.badge}</div>
+                                    <div style={{ position: 'absolute', top: '24px', right: '24px', background: 'var(--vivid-orange)', color: 'white', fontSize: '0.7rem', fontWeight: '950', padding: '6px 16px', borderRadius: '50px', letterSpacing: '0.08em' }}>{plan.badge}</div>
                                 )}
-                                <h3 style={{ fontSize: '1.2rem', fontWeight: '900', marginBottom: '8px' }}>{plan.name}</h3>
-                                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', marginBottom: '24px' }}>
-                                    <span style={{ fontSize: '2.5rem', fontWeight: '950', color: 'var(--vivid-orange)', lineHeight: 1 }}>{plan.price}</span>
-                                    <span style={{ color: 'var(--light-text)', fontSize: '0.9rem', marginBottom: '4px' }}>{plan.period}</span>
+                                <h3 style={{ fontSize: '1.5rem', fontWeight: '900', marginBottom: '12px', color: 'var(--dark-text)' }}>{plan.name}</h3>
+                                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', marginBottom: '32px' }}>
+                                    <span style={{ fontSize: '3.5rem', fontWeight: '950', color: 'var(--vivid-orange)', lineHeight: 1 }}>{plan.price}</span>
+                                    <span style={{ color: 'var(--light-text)', fontSize: '1rem', marginBottom: '8px', fontWeight: '600' }}>{plan.period}</span>
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px', flex: 1 }}>
                                     {plan.features.map((f, j) => (
-                                        <div key={j} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: 'var(--light-text)', fontSize: '0.9rem', lineHeight: 1.4 }}>
-                                            <CheckCircle size={15} color="var(--vivid-orange)" style={{ flexShrink: 0, marginTop: '1px' }} /> {f}
+                                        <div key={j} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', color: 'var(--light-text)', fontSize: '0.95rem', lineHeight: 1.5 }}>
+                                            <CheckCircle size={18} color="var(--vivid-orange)" style={{ flexShrink: 0, marginTop: '2px' }} /> {f}
                                         </div>
                                     ))}
                                 </div>
-                                <button style={{ width: '100%', padding: '13px', borderRadius: '14px', border: 'none', fontWeight: '800', fontSize: '0.95rem', cursor: 'pointer', ...plan.ctaStyle }}>{plan.cta}</button>
+                                <button style={{ width: '100%', padding: '18px', borderRadius: '18px', border: 'none', fontWeight: '900', fontSize: '1.05rem', cursor: 'pointer', ...plan.ctaStyle }}>{plan.cta}</button>
                             </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
-                {/* Virtual Gifts */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} style={{ marginBottom: '60px' }}>
-                    <h2 style={{ fontSize: '2rem', fontWeight: '900', marginBottom: '10px' }}>Virtual <span style={{ color: 'var(--vivid-orange)' }}>Gifts</span></h2>
-                    <p style={{ color: 'var(--light-text)', marginBottom: '30px', fontSize: '0.95rem' }}>Send a fun digital gift to make your hangout plans even more exciting. All gifts are digital with no real-world value.</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                <div style={{ marginBottom: '100px' }}>
+                    <h2 style={{ fontSize: '2.5rem', fontWeight: '950', marginBottom: '40px', color: 'var(--dark-text)' }}>Virtual <span style={{ color: 'var(--vivid-orange)' }}>Gifts</span></h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
                         {virtualGifts.map((g, i) => (
-                            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-                                whileHover={{ scale: 1.03 }}
-                                style={{ background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '18px', padding: '24px', textAlign: 'center', backdropFilter: 'blur(10px)' }}>
-                                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>{g.emoji}</div>
-                                <h4 style={{ fontWeight: '900', fontSize: '1rem', marginBottom: '6px', color: 'var(--dark-text)' }}>{g.name}</h4>
-                                <p style={{ color: 'var(--light-text)', fontSize: '0.82rem', lineHeight: 1.5, marginBottom: '14px' }}>{g.desc}</p>
-                                <div style={{ color: 'var(--vivid-orange)', fontWeight: '900', fontSize: '1.1rem' }}>{g.price}</div>
+                            <motion.div key={i} custom={i} variants={fadeUp}
+                                whileHover={{ scale: 1.05 }}
+                                style={{ background: 'white', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '24px', padding: '30px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
+                                <div style={{ fontSize: '3rem', marginBottom: '16px' }}>{g.emoji}</div>
+                                <h4 style={{ fontWeight: '900', fontSize: '1.2rem', marginBottom: '8px', color: 'var(--dark-text)' }}>{g.name}</h4>
+                                <p style={{ color: 'var(--light-text)', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '20px' }}>{g.desc}</p>
+                                <div style={{ color: 'var(--vivid-orange)', fontWeight: '950', fontSize: '1.4rem' }}>{g.price}</div>
                             </motion.div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
 
-                {/* CTA */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-                    style={{ textAlign: 'center', padding: '60px 40px', background: 'linear-gradient(135deg, rgba(255,108,0,0.08) 0%, rgba(255,108,0,0.02) 100%)', border: '1px solid rgba(255,108,0,0.12)', borderRadius: '32px' }}>
-                    <Coffee size={48} color="var(--vivid-orange)" style={{ marginBottom: '20px', opacity: 0.7 }} />
-                    <h2 style={{ fontSize: '2.2rem', fontWeight: '950', marginBottom: '14px' }}>Ready to <span style={{ color: 'var(--vivid-orange)' }}>Hang Out?</span></h2>
-                    <p style={{ color: 'var(--light-text)', marginBottom: '30px', fontSize: '1rem', lineHeight: 1.7 }}>Download Little Hearts and enter the Hangout Zone today. Your next adventure is waiting.</p>
-                    <button className="btn-primary" style={{ padding: '16px 44px', fontSize: '1.05rem' }}>Download the App</button>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    style={{
+                        textAlign: 'center',
+                        padding: '80px 40px',
+                        background: 'linear-gradient(135deg, var(--vivid-orange), #ff8c00)',
+                        borderRadius: '40px',
+                        color: 'white',
+                        boxShadow: '0 30px 60px rgba(255,94,0,0.2)',
+                    }}
+                >
+                    <Coffee size={64} color="white" style={{ marginBottom: '24px', opacity: 0.9 }} />
+                    <h2 style={{ fontSize: '3rem', fontWeight: '950', marginBottom: '16px' }}>Ready to Hang Out?</h2>
+                    <p style={{ opacity: 0.9, marginBottom: '40px', fontSize: '1.2rem', maxWidth: '600px', marginInline: 'auto' }}>Download Little Hearts and enter the Hangout Zone today.</p>
+                    <button className="btn-primary" style={{ background: 'white', color: 'var(--dark-text)', padding: '18px 50px', fontSize: '1.1rem', borderRadius: '18px' }}>Download the App</button>
                 </motion.div>
             </div>
         </div>

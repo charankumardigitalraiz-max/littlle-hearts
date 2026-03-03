@@ -4,7 +4,6 @@ import { ShieldAlert, ArrowLeft, Baby, Lock, Heart, Eye, Bell, ShieldCheck, Life
 import { useNavigate } from 'react-router-dom';
 
 const GlassCard = ({ icon: Icon, title, children, delay = 0, accent = 'var(--vivid-orange)' }) => (
-    // ... (rest of GlassCard)
     <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
