@@ -1,0 +1,111 @@
+:root {
+  /* Electric Hearts - Ultra Vibrant Palette */
+  --neon-pink: #FF007F;
+  --bright-cyan: #00F2FF;
+  --vivid-orange: #FF5E00;
+  --deep-purple: #7000FF;
+  --pure-white: #FFFFFF;
+  --soft-bg: #FAFBFF;
+
+  --dark-text: #0F172A;
+  --light-text: #475569;
+
+  /* Advanced Gradients */
+  --gradient-electric: linear-gradient(135deg, var(--neon-pink) 0%, var(--vivid-orange) 50%, var(--deep-purple) 100%);
+  --gradient-neon: linear-gradient(45deg, var(--bright-cyan) 0%, var(--deep-purple) 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(255, 0, 127, 0.05) 0%, rgba(0, 242, 255, 0.05) 100%);
+
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow-neon: 0 10px 40px -10px rgba(255, 0, 127, 0.3);
+  --shadow-float: 0 20px 60px -15px rgba(15, 23, 42, 0.1);
+
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide default cursor globally */
+* {
+  cursor: none !important;
+}
+
+body {
+  background-color: var(--soft-bg);
+  color: var(--dark-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Varela Round', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-float);
+}
+
+.btn-primary {
+  background: var(--gradient-electric);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-neon);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 45px -5px rgba(255, 0, 127, 0.5);
+}
+
+.text-gradient {
+  background: var(--gradient-electric);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+section {
+  padding: 80px 8%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 5%;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--soft-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-electric);
+  border-radius: 10px;
+}
