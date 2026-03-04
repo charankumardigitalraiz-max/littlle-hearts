@@ -107,55 +107,77 @@ const ChildSafetyPolicy = () => {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                     gap: '24px'
                 }}>
-                    <GlassCard icon={Baby} title="1. Age Requirement" delay={0.1}>
-                        <p>Little Hearts is designed for users aged 13 and older. We use a combination of self-declaration and monitoring to ensure strictly age-appropriate interactions.</p>
+                    <GlassCard icon={Baby} title="1. Age Restrictions" delay={0.1}>
+                        <p>
+                            Little Hearts is intended for users 13 years and older (or the minimum legal age in your country).
+                            Users under the required minimum age are strictly prohibited from creating an account.
+                            If we discover an underage account, it will be immediately suspended or permanently removed.
+                        </p>
                     </GlassCard>
 
-                    <GlassCard icon={ShieldCheck} title="2. Verified Environment" delay={0.2}>
-                        <p>We encourage and implement profile verification to ensure that every "heart" on our platform is a real, genuine human being with honest intentions.</p>
+                    <GlassCard icon={ShieldCheck} title="2. Zero Tolerance for Child Sexual Abuse & Exploitation (CSAE)" delay={0.2}>
+                        <p>We strictly prohibit:</p>
+                        <ul style={{ paddingLeft: '18px', marginTop: '8px' }}>
+                            <li>Sharing or requesting sexual content involving minors</li>
+                            <li>Grooming behavior</li>
+                            <li>Exploitation or abuse of children</li>
+                            <li>Any content that depicts minors in a sexual manner</li>
+                        </ul>
+                        <p style={{ marginTop: '10px' }}>
+                            Accounts involved in such activities will be immediately banned,
+                            reported to relevant law enforcement authorities,
+                            and reported to appropriate child safety organizations where required.
+                        </p>
                     </GlassCard>
 
-                    <GlassCard icon={Eye} title="3. Active Moderation" delay={0.3} accent="#ff4b2b">
-                        <p>Our systems and human moderators work around the clock to detect and remove inappropriate content, harassment, or any behavior that compromises safety.</p>
+                    <GlassCard icon={Eye} title="3. Monitoring & Reporting" delay={0.3} accent="#ff4b2b">
+                        <p>
+                            Little Hearts provides tools to report inappropriate messages or behavior,
+                            block users, and flag suspicious content.
+                            We review reports promptly and take appropriate action.
+                        </p>
                     </GlassCard>
 
-                    <GlassCard icon={Bell} title="4. Instant Reporting" delay={0.4}>
-                        <p>Found something that doesn't feel right? Our 1-tap reporting tool puts the power in your hands. We investigate every single report with the highest priority.</p>
+                    <GlassCard icon={Bell} title="4. Moderation Measures" delay={0.4}>
+                        <p>
+                            To protect minors and users, we monitor reported content,
+                            remove harmful or inappropriate material,
+                            and take action against violators, including permanent bans.
+                        </p>
                     </GlassCard>
 
-                    <GlassCard icon={Lock} title="5. Privacy Controls" delay={0.5}>
-                        <p>By default, we minimize the amount of personal data shared. You have full control over who can see your profile and who can start a conversation with you.</p>
+                    <GlassCard icon={Lock} title="5. Parental Concerns" delay={0.5}>
+                        <p>
+                            If a parent or guardian believes a child has created an account in violation
+                            of our age policy, please contact us immediately.
+                            We will take swift action to remove the account and associated data.
+                        </p>
+                        <p style={{ marginTop: '10px', fontWeight: '700' }}>
+                            📧 Contact:
+                            <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'var(--vivid-orange)', marginLeft: '5px' }}>
+                                littleheartsapp@gmail.com
+                            </a>
+                        </p>
                     </GlassCard>
 
-                    <GlassCard icon={Users} title="6. Community Standards" delay={0.6}>
-                        <p>We've built a "Kindness-First" culture. Any user found targeting minors or engaging in predatory behavior is permanently banned and reported to authorities if necessary.</p>
+                    <GlassCard icon={Users} title="6. Cooperation with Authorities" delay={0.6}>
+                        <p>
+                            We cooperate fully with law enforcement and child protection agencies
+                            in cases involving child safety violations.
+                        </p>
                     </GlassCard>
 
-                    <GlassCard icon={LifeBuoy} title="7. Parental Resources" delay={0.7}>
-                        <p>We believe in teamwork. We provide resources and clear channels for parents to understand how our app works and how they can support their teen's safety.</p>
-                    </GlassCard>
-
-                    <GlassCard icon={Heart} title="8. Our Commitment" delay={0.8}>
-                        <p>Your safety is our north star. We continuously evolve our technology and policies to stay ahead of risks and keep Little Hearts a warm, safe space.</p>
-                        <div style={{ marginTop: '15px', padding: '15px', background: 'rgba(255,108,0,0.05)', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <p style={{ fontSize: '0.85rem', color: 'var(--vivid-orange)', fontWeight: '800' }}>
-                                Safety Email: <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'inherit', textDecoration: 'underline' }}>littleheartsapp@gmail.com</a>
-                            </p>
-                            <p style={{ fontSize: '0.85rem', color: 'var(--vivid-orange)', fontWeight: '800' }}>
-                                Support: 7995135561
-                            </p>
-                            <p style={{ fontSize: '0.8rem', color: 'var(--light-text)', fontWeight: '600', lineHeight: 1.4 }}>
-                                Address:<br />
-                                1-209, Near by Chervu , Thorredu,<br />
-                                East Godavari, Andhra Pradesh-533293
-                            </p>
-                        </div>
+                    <GlassCard icon={Heart} title="7. Ongoing Commitment" delay={0.7}>
+                        <p>
+                            We continuously improve our safety systems to ensure Little Hearts
+                            remains a safe space for making friends and positive social interactions.
+                        </p>
                     </GlassCard>
                 </div>
 
-                <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
+                {/* <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
                     <p>© 2024 Little Hearts Tech. Safe hearts are happy hearts.</p>
-                </footer>
+                </footer> */}
             </div>
         </div>
     );
