@@ -73,7 +73,7 @@ const Hero = () => {
                 <div style={{ textAlign: 'left', flex: 1.2, maxWidth: '700px' }}>
                     <motion.div variants={itemVariants} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', color: 'var(--neon-pink)', fontWeight: '800', fontSize: '0.85rem', marginBottom: '25px', letterSpacing: '0.15em', textTransform: 'uppercase', opacity: 0.8 }}>
                         <Sparkles size={16} fill="currentColor" />
-                        <span>Friendship · Dating · Hangouts</span>
+                        <span>Friendship · Buddy · Hangouts</span>
                     </motion.div>
 
                     <motion.h1
@@ -129,9 +129,10 @@ const Hero = () => {
                 {/* Right Side: Three-Zone Collage */}
                 <motion.div
                     variants={imageVariants}
-                    style={{ flex: 1, position: 'relative', display: 'flex', justifyContent: 'flex-end' }}
+                    style={{ flex: 1, position: 'relative', display: 'flex', justifyContent: 'flex-end', width: '100%' }}
                 >
-                    <div className="hero-collage" style={{ position: 'relative', width: '100%', maxWidth: '580px', height: '520px' }}>
+                    {/* Desktop: absolute floating layout */}
+                    <div className="hero-collage hero-collage-desktop" style={{ position: 'relative', width: '100%', maxWidth: '580px', height: '520px' }}>
 
                         {/* Main Card - Buddy Zone (large, left) */}
                         <motion.div
@@ -211,6 +212,34 @@ const Hero = () => {
                             <Sparkles size={22} color="var(--neon-pink)" />
                         </motion.div>
                     </div>
+
+                    {/* Mobile: grid layout — all 3 cards fully visible */}
+                    <div className="hero-collage hero-collage-mobile" style={{ display: 'none', width: '100%' }}>
+                        {/* Large card — Buddy Zone */}
+                        <div style={{ position: 'relative', borderRadius: '22px', overflow: 'hidden', boxShadow: '0 20px 50px -10px rgba(0,0,0,0.15)', gridColumn: '1 / -1', aspectRatio: '16/9' }}>
+                            <img src="/friendship_1.png" alt="Buddy Zone" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                            <div style={{ position: 'absolute', bottom: '12px', left: '12px', background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(12px)', padding: '6px 14px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Users size={14} color="var(--bright-cyan)" />
+                                <span style={{ color: 'white', fontWeight: '800', fontSize: '0.8rem' }}>Buddy Zone</span>
+                            </div>
+                        </div>
+                        {/* Friend Zone */}
+                        <div style={{ position: 'relative', borderRadius: '22px', overflow: 'hidden', boxShadow: '0 20px 50px -10px rgba(0,0,0,0.15)', aspectRatio: '1/1' }}>
+                            <img src="/date.png" alt="Friend Zone" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                            <div style={{ position: 'absolute', bottom: '10px', left: '10px', background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(12px)', padding: '5px 12px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '7px' }}>
+                                <Heart size={12} color="var(--neon-pink)" fill="var(--neon-pink)" />
+                                <span style={{ color: 'white', fontWeight: '800', fontSize: '0.72rem' }}>Friend Zone</span>
+                            </div>
+                        </div>
+                        {/* Hangout Zone */}
+                        <div style={{ position: 'relative', borderRadius: '22px', overflow: 'hidden', boxShadow: '0 20px 50px -10px rgba(0,0,0,0.15)', aspectRatio: '1/1' }}>
+                            <img src="/hangout.png" alt="Hangout Zone" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                            <div style={{ position: 'absolute', bottom: '10px', left: '10px', background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(12px)', padding: '5px 12px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '7px' }}>
+                                <Coffee size={12} color="var(--vivid-orange)" />
+                                <span style={{ color: 'white', fontWeight: '800', fontSize: '0.72rem' }}>Hangout Zone</span>
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
             </motion.div>
 
@@ -220,11 +249,12 @@ const Hero = () => {
                         flex-direction: column !important;
                         text-align: center !important;
                         padding-bottom: 60px;
-                        gap: 80px !important;
+                        gap: 48px !important;
                     }
                     .hero-container > div {
                         text-align: center !important;
                         align-items: center !important;
+                        max-width: 100% !important;
                     }
                     .hero-container h1 {
                         margin-bottom: 25px !important;
@@ -234,6 +264,23 @@ const Hero = () => {
                     }
                     .hero-container div[style*="display: flex"] {
                         justify-content: center !important;
+                    }
+
+                    /* Swap collage variants */
+                    .hero-collage-desktop {
+                        display: none !important;
+                    }
+                    .hero-collage-mobile {
+                        display: grid !important;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 12px;
+                        width: 100%;
+                        max-width: 560px;
+                        margin-inline: auto;
+                    }
+                    /* Buddy Zone spans full width */
+                    .hero-collage-mobile > div:first-child {
+                        grid-column: 1 / -1;
                     }
                 }
             `}</style>

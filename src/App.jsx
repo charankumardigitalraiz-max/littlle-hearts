@@ -6,6 +6,7 @@ import Zones from './components/Zones';
 import Features from './components/Features';
 import Community from './components/Community';
 import Footer from './components/Footer';
+import AppDownload from './components/AppDownload';
 import CustomCursor from './components/CustomCursor';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsConditions from './components/TermsConditions';
@@ -77,6 +78,7 @@ const App = () => {
                 <Route path="/hangout-zone" element={<HangoutZonePage />} />
             </Routes>
 
+            <AppDownload />
             <Footer />
         </div>
     );
