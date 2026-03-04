@@ -82,7 +82,7 @@ const Footer = () => {
                             📞 7995135561
                         </div>
                         <div style={{ color: 'var(--light-text)', fontSize: '0.85rem', fontWeight: '500', lineHeight: 1.5, marginTop: '5px' }}>
-                            1-209, Chervu Daggara,<br />
+                            1-209, Near by Chervu ,<br />
                             Thorredu, East Godavari,<br />
                             Andhra Pradesh - 533293
                         </div>
