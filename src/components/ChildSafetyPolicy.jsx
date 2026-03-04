@@ -137,8 +137,18 @@ const ChildSafetyPolicy = () => {
 
                     <GlassCard icon={Heart} title="8. Our Commitment" delay={0.8}>
                         <p>Your safety is our north star. We continuously evolve our technology and policies to stay ahead of risks and keep Little Hearts a warm, safe space.</p>
-                        <div style={{ marginTop: '15px', padding: '15px', background: 'rgba(255,108,0,0.05)', borderRadius: '16px' }}>
-                            <p style={{ fontSize: '0.85rem', color: 'var(--vivid-orange)', fontWeight: '800' }}>Safety Contact: <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'inherit', textDecoration: 'underline' }}>littleheartsapp@gmail.com</a></p>
+                        <div style={{ marginTop: '15px', padding: '15px', background: 'rgba(255,108,0,0.05)', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--vivid-orange)', fontWeight: '800' }}>
+                                Safety Email: <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'inherit', textDecoration: 'underline' }}>littleheartsapp@gmail.com</a>
+                            </p>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--vivid-orange)', fontWeight: '800' }}>
+                                Support: 7995135561
+                            </p>
+                            <p style={{ fontSize: '0.8rem', color: 'var(--light-text)', fontWeight: '600', lineHeight: 1.4 }}>
+                                Address:<br />
+                                1-209, Chervu Daggara, Thorredu,<br />
+                                East Godavari, Andhra Pradesh-533293
+                            </p>
                         </div>
                     </GlassCard>
                 </div>

@@ -11,8 +11,8 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsConditions from './components/TermsConditions';
 import ChildSafetyPolicy from './components/ChildSafetyPolicy';
 import RefundPolicy from './components/RefundPolicy';
+import FriendshipZonePage from './components/FriendshipZonePage';
 import BuddyZonePage from './components/BuddyZonePage';
-import DatingZonePage from './components/DatingZonePage';
 import HangoutZonePage from './components/HangoutZonePage';
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
 
     // Determine if Navbar should be shown
     // User requested no header on policy pages
-    const hideHeader = ['/privacy', '/terms', '/refund', '/child-safety', '/buddy-zone', '/dating-zone', '/hangout-zone'].includes(location.pathname);
+    const hideHeader = ['/privacy', '/terms', '/refund', '/child-safety', '/buddy-zone', '/friend-zone', '/hangout-zone'].includes(location.pathname);
 
     return (
         <div style={{ background: 'var(--soft-bg)', minHeight: '100vh', cursor: 'none' }}>
@@ -65,7 +65,7 @@ const App = () => {
                 <Route path="/child-safety" element={<ChildSafetyPolicy />} />
                 <Route path="/refund" element={<RefundPolicy />} />
                 <Route path="/buddy-zone" element={<BuddyZonePage />} />
-                <Route path="/dating-zone" element={<DatingZonePage />} />
+                <Route path="/friend-zone" element={<FriendshipZonePage />} />
                 <Route path="/hangout-zone" element={<HangoutZonePage />} />
             </Routes>
 

@@ -4,8 +4,8 @@ import { Users, Heart, Coffee, ArrowRight, X, Sparkles, ShieldCheck, MapPin, Zap
 
 const zones = [
     {
-        id: 'buddy',
-        title: 'Buddy Zone',
+        id: 'friendship',
+        title: 'Friendship Zone',
         subtitle: 'Find your platonic match',
         description: 'Meet like-minded people for genuine friendships. No pressure, just real bonds.',
         icon: <Users size={24} />,
@@ -18,9 +18,9 @@ const zones = [
         ]
     },
     {
-        id: 'dating',
-        title: 'Dating Zone',
-        subtitle: 'Intentional dating for modern hearts',
+        id: 'buddy',
+        title: 'Buddy Zone',
+        subtitle: 'Intentional connection for modern hearts',
         description: 'Spark something special. Safe, intentional space for romantic connections.',
         icon: <Heart size={24} />,
         color: 'var(--neon-pink)',
@@ -48,7 +48,7 @@ const zones = [
 ];
 
 const zoneDetails = {
-    buddy: {
+    friendship: {
         what: [
             'Match with people based on shared hobbies and values',
             'Join micro-communities for every interest',
@@ -59,12 +59,12 @@ const zoneDetails = {
         expect: 'A relaxed, pressure-free zone where you explore friendships. No romantic expectations — just real human warmth and connection.',
         rules: [
             'Be respectful and kind at all times',
-            'No romantic solicitation in Buddy Zone',
+            'No romantic solicitation in Friendship Zone',
             'Keep personal information private until you feel comfortable',
             'Report anyone who makes you feel uncomfortable'
         ]
     },
-    dating: {
+    buddy: {
         what: [
             'Get matched with compatible romantic interests',
             'Play Icebreaker Games to skip the awkward small talk',
@@ -98,7 +98,7 @@ const zoneDetails = {
     }
 };
 
-const zonePageMap = { buddy: 'buddy-zone', dating: 'dating-zone', hangout: 'hangout-zone' };
+const zonePageMap = { friendship: 'friend-zone', buddy: 'buddy-zone', hangout: 'hangout-zone' };
 
 const ZoneDetail = ({ zone, onClose, onNavigate, showInfo }) => {
     const details = zoneDetails[zone.id];

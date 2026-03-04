@@ -74,9 +74,19 @@ const Footer = () => {
                         <a href="#" style={{ color: 'var(--neon-pink)', background: 'rgba(255,0,127,0.05)', padding: '10px', borderRadius: '15px', display: 'flex', transition: 'transform 0.2s' }}><Twitter size={20} /></a>
                         <a href="#" style={{ color: 'var(--neon-pink)', background: 'rgba(255,0,127,0.05)', padding: '10px', borderRadius: '15px', display: 'flex', transition: 'transform 0.2s' }}><Facebook size={20} /></a>
                     </div>
-                    <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'var(--light-text)', fontSize: '0.9rem', textDecoration: 'none', fontWeight: '600' }}>
-                        📧 littleheartsapp@gmail.com
-                    </a>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <a href="mailto:littleheartsapp@gmail.com" style={{ color: 'var(--light-text)', fontSize: '0.9rem', textDecoration: 'none', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            📧 littleheartsapp@gmail.com
+                        </a>
+                        <div style={{ color: 'var(--light-text)', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            📞 7995135561
+                        </div>
+                        <div style={{ color: 'var(--light-text)', fontSize: '0.85rem', fontWeight: '500', lineHeight: 1.5, marginTop: '5px' }}>
+                            1-209, Chervu Daggara,<br />
+                            Thorredu, East Godavari,<br />
+                            Andhra Pradesh - 533293
+                        </div>
+                    </div>
                 </div>
             </div>
 
