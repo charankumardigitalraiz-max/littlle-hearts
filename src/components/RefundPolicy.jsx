@@ -167,7 +167,7 @@ const RefundPolicy = () => {
                             <p style={{ fontSize: '0.85rem', color: 'var(--neon-pink)', fontWeight: '800' }}>📞 7995135561</p>
                             <p style={{ fontSize: '0.8rem', color: 'var(--light-text)', fontWeight: '600', lineHeight: 1.4 }}>
                                 Address:<br />
-                                1-209, Chervu Daggara, Thorredu,<br />
+                                1-209, Near by Chervu , Thorredu,<br />
                                 East Godavari, Andhra Pradesh-533293
                             </p>
                         </div>
