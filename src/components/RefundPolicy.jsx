@@ -176,7 +176,7 @@ const RefundPolicy = () => {
                 </div>
 
                 <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
-                    <p>© 2024 Little Hearts Tech. Honesty is our only policy.</p>
+                    <p>© 2026 Little Hearts Tech. Honesty is our only policy.</p>
                 </footer>
             </div>
         </div>

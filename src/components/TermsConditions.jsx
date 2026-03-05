@@ -109,7 +109,7 @@ const TermsConditions = () => {
                     gap: '24px'
                 }}>
                     <GlassCard icon={UserCheck} title="1. Who Can Join" delay={0.1}>
-                        <p>You must be 13 or older. By creating an account, you promise that everything you tell us — especially your age and identity — is the honest truth.</p>
+                        <p>You must be 18 years of age or older to use Little Hearts. By creating an account, you promise that everything you tell us — especially your age and identity — is the absolute truth.</p>
                     </GlassCard>
 
                     <GlassCard icon={ShieldAlert} title="2. Your Mission" delay={0.2}>
@@ -142,7 +142,7 @@ const TermsConditions = () => {
                 </div>
 
                 <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
-                    <p>© 2024 Little Hearts. Kindness is a choice. Thank you for choosing it.</p>
+                    <p>© 2026 Little Hearts. Kindness is a choice. Thank you for choosing it.</p>
                 </footer>
             </div>
         </div>

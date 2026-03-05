@@ -100,6 +100,7 @@ const PrivacyPolicy = () => {
                     <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: '950', color: 'var(--dark-text)', marginBottom: '20px', letterSpacing: '-0.04em', lineHeight: 1 }}>
                         Your Privacy <span className="text-gradient">Matters</span>
                     </h1>
+                    <p className="effective-date" style={{ color: 'var(--light-text)', fontStyle: 'italic', marginBottom: '20px' }}>Effective Date: March 5, 2026</p>
                     <p style={{ color: 'var(--light-text)', fontSize: '1.2rem', maxWidth: '700px', lineHeight: 1.6, fontWeight: '500' }}>
                         At Little Hearts, we believe your data belongs to you. We've built our platform with transparency and protection at its core.
                     </p>
@@ -112,11 +113,12 @@ const PrivacyPolicy = () => {
                     gridAutoRows: 'minmax(250px, auto)'
                 }}>
                     <GlassCard icon={User} title="1. Information We Collect" delay={0.1}>
-                        <p>We only collect what's necessary: Name, email, profile photos, and your interests. This helps us create a more personalized experience for you.</p>
+                        <p>We collect only the essential information needed to provide a safe and personalized social experience, in full compliance with Google Play's Data Safety requirements.</p>
                         <ul style={{ marginTop: '10px', paddingLeft: '20px', listStyle: 'disc' }}>
-                            <li>Basic Identity Data</li>
-                            <li>Buddy & Interaction Preferences</li>
-                            <li>Messages & Virtual Gifts</li>
+                            <li><strong>Identity Data:</strong> Username, Phone Number (for secure OTP login), and Date of Birth.</li>
+                            <li><strong>Digital Assets:</strong> Purchase and Transaction history (Coins/Stars).</li>
+                            <li><strong>Interactions:</strong> Chat messages, Virtual Gift history, and Connection preferences.</li>
+                            <li><strong>Technical Identifiers:</strong> Device IDs for push notifications and account security.</li>
                         </ul>
                     </GlassCard>
 
@@ -138,8 +140,8 @@ const PrivacyPolicy = () => {
                         <p>We keep your info only as long as you're a part of the community. Delete your account, and your data is cleared from our active systems promptly.</p>
                     </GlassCard>
 
-                    <GlassCard icon={Baby} title="6. Younger Hearts" delay={0.6}>
-                        <p>Little Hearts is for users 13 and older. We do not knowingly collect information from anyone under this age limit.</p>
+                    <GlassCard icon={Baby} title="6. Age Restriction" delay={0.6}>
+                        <p>Little Hearts is strictly for users aged 18 and older. We do not knowingly collect information from anyone under this age limit, and we employ store-level age verification to protect younger audiences.</p>
                     </GlassCard>
 
                     <GlassCard icon={HelpCircle} title="7. Your Choice" delay={0.7}>
@@ -155,7 +157,7 @@ const PrivacyPolicy = () => {
                 </div>
 
                 <footer style={{ marginTop: '80px', textAlign: 'center', color: 'var(--light-text)', fontSize: '0.9rem' }}>
-                    <p>© 2024 Little Hearts. Protecting hearts, protecting privacy.</p>
+                    <p>© 2026 Little Hearts. Protecting hearts, protecting privacy.</p>
                 </footer>
             </div>
         </div>

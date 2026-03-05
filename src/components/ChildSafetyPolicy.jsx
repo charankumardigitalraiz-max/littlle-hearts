@@ -109,7 +109,7 @@ const ChildSafetyPolicy = () => {
                 }}>
                     <GlassCard icon={Baby} title="1. Age Restrictions" delay={0.1}>
                         <p>
-                            Little Hearts is intended for users 13 years and older (or the minimum legal age in your country).
+                            Little Hearts is strictly intended for users 18 years and older (or the minimum legal age in your country).
                             Users under the required minimum age are strictly prohibited from creating an account.
                             If we discover an underage account, it will be immediately suspended or permanently removed.
                         </p>

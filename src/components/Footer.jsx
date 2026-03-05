@@ -94,7 +94,7 @@ const Footer = () => {
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                     <Sparkles size={16} style={{ color: 'var(--neon-pink)' }} /> Made with Love for Humanity
                 </div>
-                <p>© 2024 Little Hearts Tech. All rights reserved. Let's make the world <Heart size={12} fill="var(--neon-pink)" stroke="none" style={{ display: 'inline', verticalAlign: 'middle' }} /> again.</p>
+                <p>© 2026 Little Hearts Tech. All rights reserved. Let's make the world <Heart size={12} fill="var(--neon-pink)" stroke="none" style={{ display: 'inline', verticalAlign: 'middle' }} /> again.</p>
             </div>
         </footer>
     );
