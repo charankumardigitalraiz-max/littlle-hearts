@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
                         <p>We only collect what's necessary: Name, email, profile photos, and your interests. This helps us create a more personalized experience for you.</p>
                         <ul style={{ marginTop: '10px', paddingLeft: '20px', listStyle: 'disc' }}>
                             <li>Basic Identity Data</li>
-                            <li>Dating & Interaction Preferences</li>
+                            <li>Buddy & Interaction Preferences</li>
                             <li>Messages & Virtual Gifts</li>
                         </ul>
                     </GlassCard>
