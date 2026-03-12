@@ -98,6 +98,7 @@ const AppDownload = () => {
                     {/* Google Play */}
                     <a
                         href="https://play.google.com/store/apps/details?id=com.little.hearts&hl=en_IN"
+                        target='_blank'
                         aria-label="Get it on Google Play"
                         className="store-btn"
                         style={{
