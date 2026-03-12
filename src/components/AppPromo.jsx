@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Apple, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AppPromo = () => {
     return (
@@ -30,22 +31,25 @@ const AppPromo = () => {
                         src="/banner.png"
                         alt="Little Hearts App"
                         style={{
-                            width: '100%',
-                            height: 'auto',
-                            borderRadius: '32px',
-                            boxShadow: '0 40px 80px -20px rgba(0,0,0,0.15)',
-                            display: 'block'
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: "32px",
+                            boxShadow: "0 40px 80px -20px rgba(0,0,0,0.15)",
+                            display: "block",
+                            pointerEvents: "none"
                         }}
                     />
 
                     {/* Store Buttons - Responsive Positioning */}
-                    <div className="promo-buttons" style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        gap: '12px',
-                        zIndex: 10
-                    }}>
-                        <motion.button
+                    <div className="promo-buttons"
+                        style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: "12px",
+                            zIndex: 20,
+                            position: "absolute"
+                        }}>
+                        <motion.a
                             whileHover={{ scale: 1.05, x: -5 }}
                             whileTap={{ scale: 0.95 }}
                             style={{
@@ -67,9 +71,16 @@ const AppPromo = () => {
                                 <div style={{ fontSize: '0.65rem', opacity: 0.7 }}>App Store</div>
                                 <div style={{ fontWeight: '800', fontSize: '0.85rem' }}>Download</div>
                             </div>
-                        </motion.button>
-
-                        <motion.button
+                        </motion.a>
+                        <motion.a
+                            href="https://play.google.com/store/apps/details?id=com.little.hearts&hl=en_IN"
+                            onClick={() =>
+                                window.open(
+                                    "https://play.google.com/store/apps/details?id=com.little.hearts&hl=en_IN",
+                                    "_blank"
+                                )
+                            }
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05, x: -5 }}
                             whileTap={{ scale: 0.95 }}
                             style={{
@@ -83,7 +94,8 @@ const AppPromo = () => {
                                 gap: '10px',
                                 alignItems: 'center',
                                 cursor: 'pointer',
-                                boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+                                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+                                textDecoration: 'none'
                             }}
                         >
                             <Play fill="white" size={20} />
@@ -91,7 +103,7 @@ const AppPromo = () => {
                                 <div style={{ fontSize: '0.65rem', opacity: 0.7 }}>Google Play</div>
                                 <div style={{ fontWeight: '800', fontSize: '0.85rem' }}>Get it on</div>
                             </div>
-                        </motion.button>
+                        </motion.a>
                     </div>
                 </motion.div>
             </div>

@@ -206,7 +206,7 @@ const HangoutZonePage = () => {
                                     boxShadow: '0 20px 40px rgba(0,0,0,0.03)',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    background: 'white'
+                                    // background: 'white'
                                 }}>
                                 {plan.badge && (
                                     <div style={{ position: 'absolute', top: '24px', right: '24px', background: 'var(--vivid-orange)', color: 'white', fontSize: '0.7rem', fontWeight: '950', padding: '6px 16px', borderRadius: '50px', letterSpacing: '0.08em' }}>{plan.badge}</div>
