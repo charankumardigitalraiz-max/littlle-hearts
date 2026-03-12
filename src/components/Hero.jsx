@@ -87,7 +87,7 @@ const Hero = () => {
                             color: 'var(--dark-text)'
                         }}
                     >
-                        Meet. Bond. <br />
+                        dMeet. Bond. <br />
                         Build <span className="text-gradient">Real Moments.</span>
                     </motion.h1>
 
