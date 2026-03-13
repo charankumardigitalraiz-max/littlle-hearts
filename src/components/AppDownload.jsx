@@ -66,7 +66,7 @@ const AppDownload = () => {
                     }}
                 >
                     {/* App Store */}
-                    <a
+                    {/* <a
                         href=""
                         aria-label="Download on the App Store"
                         className="store-btn"
@@ -93,7 +93,7 @@ const AppDownload = () => {
                             <div style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.65)', fontWeight: '600', lineHeight: 1, marginBottom: '2px' }}>Download on the</div>
                             <div style={{ fontSize: '1rem', color: 'white', fontWeight: '800', lineHeight: 1 }}>App Store</div>
                         </div>
-                    </a>
+                    </a> */}
 
                     {/* Google Play */}
                     <a

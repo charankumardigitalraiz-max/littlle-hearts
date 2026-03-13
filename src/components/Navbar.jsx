@@ -123,7 +123,9 @@ const Navbar = ({ onLogoClick, onNavClick }) => {
 
             {/* Actions */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <motion.button
+                <motion.a
+                    href="https://play.google.com/store/apps/details?id=com.little.hearts&hl=en_IN"
+                    target='_blank'
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="btn-primary"
@@ -136,7 +138,7 @@ const Navbar = ({ onLogoClick, onNavClick }) => {
                     id="nav-get-app"
                 >
                     <Download size={18} /> Get App
-                </motion.button>
+                </motion.a>
 
                 <div
                     className="mobile-toggle"
@@ -188,9 +190,9 @@ const Navbar = ({ onLogoClick, onNavClick }) => {
                                 {link.name}
                             </div>
                         ))}
-                        <button className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                        <a href="https://play.google.com/store/apps/details?id=com.little.hearts&hl=en_IN" target='_blank' className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                             <Download size={20} /> Download App
-                        </button>
+                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>
